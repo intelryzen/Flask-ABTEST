@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, render_template, make_response
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from flask_cors import CORS
 from blog_view import blog
+from blog_control.user_mgmt import User
 import os
 
 # https 만을 지원하는 기능을 http 에서 테스트할 때 필요한 설정

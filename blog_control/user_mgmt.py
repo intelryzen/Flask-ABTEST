@@ -46,7 +46,7 @@ class User(UserMixin):
             sql = "INSERT INTO user_info (USER_EMAIL, BLOG_ID) VALUES ('%s', '%s')" % (str(user_email), str(blog_id))
             db_cursor.execute(sql)
             mysql_db.commit()
-            return user.find(user_email)
+            return User.find(user_email)
         else:
             return user
     

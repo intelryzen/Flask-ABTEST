@@ -3,7 +3,7 @@ import pymysql
 MYSQL_HOST = 'localhost'
 MYSQL_CONN = pymysql.connect(
     host=MYSQL_HOST,
-    port='3306',
+    port=3306,
     user='dave',
     passwd='fucoding',
     db='blog_db',
