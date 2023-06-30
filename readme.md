@@ -10,6 +10,6 @@
 2. blog_abtest.py 실행
 <br/><br/>
 ## 실행화면
-![image](https://github.com/intelryzen/Flask-ABTEST/assets/66426612/ba48d663-683e-4285-b219-41d8ac820247)
+<img width="1349" alt="image" src="https://github.com/intelryzen/Flask-ABTEST/assets/66426612/bee63669-0169-4031-83b2-5f3d0ffee6b4">
 
 
