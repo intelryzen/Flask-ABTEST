@@ -10,7 +10,7 @@ os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = '1'
 
 app = Flask(__name__, static_url_path='/static') # html 파일 내 필요한 소스는 static에서 가져옴.
 CORS(app) # 여기서는 사실 필요없음.
-app.secret_key = 'server Keoy'
+app.secret_key = 'server Key'
 
 app.register_blueprint(blog.blog_abtest, url_prefix='/blog')
 login_manager = LoginManager()

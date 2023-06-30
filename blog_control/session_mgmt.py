@@ -1,7 +1,7 @@
 from db_model.mongodb import conn_mongodb
 from datetime import datetime
 
-class BlogSession(): 
+class BlogSession(): # 여기서의 세션은 로그인에서의 세션/쿠키의 의미가 아닌 서비스의 세션을 의미함
     blog_page = {'A': 'blog_A.html', 'B': 'blog_B.html'}
     session_count = 0
     
