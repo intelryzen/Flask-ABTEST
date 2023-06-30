@@ -14,7 +14,7 @@ def set_email():
     else:
         # content_type 이 application/json 인 경우는 request.get_json() 을 통해 파라미터 값 얻을 수 있음
         # x-www-form 인 경우 request.form 을 써야함 주로 html 에서 post 로 호출할떼 form인 경우가 많음
-        print('set_email', request.form['user_email'])
+        # print('set_email', request.form['user_email'])
         user = User.create(request.form['user_email'], 'A')
         login_user(user, remember=True, duration=timedelta(days=31)) # 사용자 request 의 header (사용자의 ip)와 user 객체의 id, 서버의 secret_key 를 기반으로 session 을 만듦. session 은 flask_login 만의 기능이 아닌 flask 자체의 기능임.
         
@@ -26,7 +26,9 @@ def set_email():
 
 @blog_abtest.route('/logout')
 def logout():
-    logout_user()
+    if current_user.is_authenticated: #로그인 안된 사용자가 요청할 경우
+        User.delete(current_user.id)
+        logout_user()
     return redirect(url_for('blog_abtest.test_blog')) 
     
 @blog_abtest.route('/test_blog')
