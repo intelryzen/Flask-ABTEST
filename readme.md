@@ -10,6 +10,6 @@
 2. blog_abtest.py 실행
 <br>
 <br>
-## 실행시 화면
+## 실행화면
 <img width="1349" alt="image" src="https://github.com/intelryzen/abtest/assets/66426612/f1057cc9-fa47-4856-a558-df59b33d1766">
 
