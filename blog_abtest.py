@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template, make_response
+from flask import Flask, jsonify, request, render_template, make_response, session
 from flask_login import LoginManager, current_user, login_required, login_user, logout_user
 from flask_cors import CORS
 from blog_view import blog
@@ -10,7 +10,7 @@ os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = '1'
 
 app = Flask(__name__, static_url_path='/static') # html 파일 내 필요한 소스는 static에서 가져옴.
 CORS(app) # 여기서는 사실 필요없음.
-app.secret_key = 'server Key'
+app.secret_key = 'server Keoy'
 
 app.register_blueprint(blog.blog_abtest, url_prefix='/blog')
 login_manager = LoginManager()
@@ -25,5 +25,12 @@ def load_user(user_id):
 def unauthorized():
     return make_response(jsonify(success = False), 401)
 
+@app.before_request # 모든 사용자가 어떤 url 을 요청하면 그전에 이 함수가 실행됨
+def app_before_request():
+    if 'client_id' not in session:
+        ip = request.environ.get('HTTP_X_REAL_IP', request.remote_addr)
+        print(ip)
+        session['client_id'] = ip
+    
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='8080', debug=True)
